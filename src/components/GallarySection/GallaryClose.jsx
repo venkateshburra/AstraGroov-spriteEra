@@ -15,7 +15,7 @@ export function GallaryClose({ selectedImageIndex, closeImage, images, enlargedI
             alt="Selected"
             className=" w-[100%] md:w-[500px] md:h-[300px] lg:w-[801px] lg:h-[478px] z-20"
           />
-          <p className="bg-white p-4 text-[15px] absolute left-[50%] right-[-50%] transform -translate-x-1/2">
+          <p className="bg-white p-4 text-[15px] -mt-2 absolute left-[50%] right-[-50%] transform -translate-x-1/2">
             Lorem ipsum is a dummy or placeholder text commonly used in
             graphic design.
           </p>
