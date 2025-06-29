@@ -1,29 +1,14 @@
 import React, { useState } from "react";
 import { school_logo } from "../assets";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const navLinks = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Academics",
-    path: "/academics",
-  },
-  {
-    name: "Gallery",
-    path: "/gallery",
-  },
-  {
-    name: "Contact us",
-    path: "/contact",
-  },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Academics", path: "/academics" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Contact us", path: "/contact" },
 ];
 
 const Header = () => {
@@ -49,22 +34,26 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center justify-center gap-[20px] px-6 font-kanit">
           {navLinks.map((item) => (
-            <Link
+            <NavLink
               to={item.path}
               key={item.name}
-              className="font-kanit text-base font-medium text-white"
+              className={({ isActive }) =>
+                `text-base font-medium font-kanit ${
+                  isActive ? "text-yellow-400" : "text-white"
+                }`
+              }
             >
               {item.name}
-            </Link>
+            </NavLink>
           ))}
-          <button className="bg-yellow-500 px-4 py-2 rounded-md text-white">
+          <button className="px-4 py-2 text-white bg-yellow-500 rounded-md">
             Admission
           </button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-white text-2xl"
+          className="text-2xl text-white lg:hidden"
           onClick={() => setIsMobileMenuOpen(true)}
         >
           <FiMenu />
@@ -78,25 +67,29 @@ const Header = () => {
         }`}
       >
         <button
-          className="absolute top-4 right-4 text-white text-2xl"
+          className="absolute text-2xl text-white top-4 right-4"
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <FiX />
         </button>
-        <nav className="mt-16 flex flex-col items-center gap-4 font-kanit">
+        <nav className="flex flex-col items-center gap-4 mt-16 font-kanit">
           {navLinks.map((item) => (
-            <a
-              href={item.path}
+            <NavLink
+              to={item.path}
               key={item.name}
-              className="text-base font-medium text-white"
-              onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-base font-medium font-kanit ${
+                  isActive ? "text-yellow-400" : "text-white"
+                }`
+              }
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
           <button
-            className="bg-yellow-500 px-4 py-2 rounded-md text-white mt-4"
-            onClick={() => setIsMobileMenuOpen(false)} // Close menu on button click
+            className="px-4 py-2 mt-4 text-white bg-yellow-500 rounded-md"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Admission
           </button>
