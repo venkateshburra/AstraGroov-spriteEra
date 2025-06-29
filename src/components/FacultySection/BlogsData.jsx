@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules"; // Import Swiper modules
 // import  Title  from "";
 import Title from "../Title";
-import ImageOne from "../FacultySection/Geetam.png";
+import ImageOne from "../FacultySection/geetam.png";
 import ImageTow from "../FacultySection/geeta.png";
 import ImageThree from "../FacultySection/kamlesh.png";
 
